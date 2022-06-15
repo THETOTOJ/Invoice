@@ -10,10 +10,10 @@ export default function Header({handlePrint}) {
       <div>
         <ul className="flex items-center justify-between flex-wrap">
           <li>
-            <button onClick={handlePrint} className="btn btn-print">Imprimer</button>
+            <button onClick={handlePrint} className="btn btn-print">Imprimer(working) </button>
           </li>
           <li>
-            <button className="btn btn-download">Télécharger</button>
+            <button className="btn btn-download">Télécharger(not yet)</button>
           </li>
         </ul>
       </div>
