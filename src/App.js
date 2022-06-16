@@ -20,7 +20,7 @@ function App() {
   const [qty, setQty  ] = useState("")
   const [pu, setPu  ] = useState("")
   const [total, setTotal  ] = useState("")
-  const [list, setList  ] = useState("")
+  const [list, setList  ] = useState([])
 
 
   const handlePrint = () => {
@@ -40,7 +40,10 @@ function App() {
                  pair={pair}
                  qty={qty}
                  pu={pu}
-                 total={total}/>
+                 total={total}
+                 list={list}
+                 setList={setList}
+                 />
     <Notes />
     <button className="m-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 
       border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all
