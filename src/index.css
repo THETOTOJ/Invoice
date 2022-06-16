@@ -8,11 +8,27 @@ body {
   background-color: #f1f1f1;
 }
 
+button{
+  user-select: none;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+input, textarea{
+  background-color: #f1f1f1;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 0.8rem;
+  color: #393939;
+  font-weight: 600;
+}
+label{
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #112827;
+  margin-bottom: 0.3rem;
+}
 .test{
   justify-content: space-between; /* Can be changed in the live sample */
 

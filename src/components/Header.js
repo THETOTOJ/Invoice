@@ -9,11 +9,15 @@ export default function Header({handlePrint}) {
       </div>
       <div>
         <ul className="flex items-center justify-between flex-wrap">
-          <li>
-            <button onClick={handlePrint} className="btn btn-print">Imprimer(working) </button>
+          <li className='mx-2'>
+            <button onClick={handlePrint} className="bg-gray-500 text-white font-bold py-2 px-8 rounded shadow border-2 
+      border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all
+      duration-300">Imprimer(working) </button>
           </li>
           <li>
-            <button className="btn btn-download">Télécharger(not yet)</button>
+            <button className="bg-green-500 text-white font-bold py-2 px-8 rounded shadow border-2 
+      border-green-500 hover:bg-transparent hover:text-green-500 transition-all
+      duration-300">Télécharger(not yet)</button>
           </li>
         </ul>
       </div>
