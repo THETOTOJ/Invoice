@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Table from "./components/Table";
 import Header from "./components/Header";
 import Notes from "./components/Notes";
 import Info from "./components/Info"
 import TableForm from "./components/TableForm";
+import ReactToPrint from "react-to-print";
 function App() {
   const [showInvoice, setShowInvoice] = useState(false)
   const [client, setClient  ] = useState("")
@@ -21,7 +22,10 @@ function App() {
   const [pu, setPu  ] = useState("")
   const [total, setTotal  ] = useState("")
   const [list, setList  ] = useState([])
+  const [total2, setTotal2 ] = useState(0)
+  const [tva, setTva ] = useState(0)
 
+  const componentRef = useRef()
 
   const handlePrint = () => {
     window.print()
@@ -29,8 +33,15 @@ function App() {
   return (
     <>
     <main className="m-5 p-5 xl:max-w-4xl xl:mx-auto bg-white rounded shadow">
-      {showInvoice ?     
-    <div>
+      <ReactToPrint 
+      trigger={() =><button className="bg-gray-500 text-white font-bold py-2 px-8 rounded shadow border-2 
+      border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all
+      duration-300 mb-10 ml-5">Print/Download</button>}
+      content={() => componentRef.current}
+      />
+      {showInvoice ?   (
+         <>
+             <div ref={componentRef} className="p-5">
     <Header handlePrint={handlePrint}/>
     <Info client={client} date={date} invoiceNbr={invoiceNbr} bookNbr={bookNbr} />
     <Table 
@@ -43,12 +54,18 @@ function App() {
                  total={total}
                  list={list}
                  setList={setList}
+                 total2={total2}
+                 setTotal2={setTotal2}
+                 tva={tva}
+                 setTva={setTva}
                  />
     <Notes />
+    </div>
     <button className="m-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 
       border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all
-      duration-300" onClick={() => setShowInvoice(false)}>Edit Information</button>
-    </div> : (
+      duration-300" onClick={() => setShowInvoice(false)}>Edit Information</button></> 
+      ) : (
+     
       <>
       {/* Client, invoice number, date, numero carnet, notes*/}
     <div className="flex flex-col justify-center items-center ">
@@ -114,6 +131,10 @@ function App() {
                   setList={setList}
                   total={total}
                   setTotal={setTotal}
+                  total2={total2}
+                  setTotal2={setTotal2}
+                  tva={tva}
+                  setTva={setTva}
                 />
               </article>
 

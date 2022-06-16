@@ -21,7 +21,11 @@ export default function TableForm({
     total,
     setTotal,
     list,
-    setList
+    setList,
+    total2,
+    setTotal2,
+    tva,
+    setTva
 }) {
 
     const [isEditing, setIsEditing] = useState(false)
@@ -29,27 +33,34 @@ export default function TableForm({
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        const newItems = {
-            id: uuidv4(),
-            refer: refer,
-            serie: serie,
-            box: box,
-            pair: pair,
-            qty: qty,
-            pu: pu,
-            total: total,
+        if (!refer || !serie || !box || !pair || !pu){
+            alert("Veuillez Remplir Le Formulaire")
+        } else{
+            const newItems = {
+                id: uuidv4(),
+                refer: refer,
+                serie: serie,
+                box: box,
+                pair: pair,
+                qty: qty,
+                pu: pu,
+                total: total,
+            }
+            setRefer("")
+            setSerie("")
+            setBox("")
+            setQty("")
+            setPair("")
+            setQty("")
+            setPu("")
+            setTotal("")
+            setList([...list, newItems])
+            setIsEditing(false)
+            console.log(list)
+            }
         }
-        setRefer("")
-        setSerie("")
-        setBox("")
-        setQty("")
-        setPair("")
-        setQty("")
-        setPu("")
-        setTotal("")
-        setList([...list, newItems])
-        console.log(list)
-        }
+
+ 
     {/*QTY AND TOTAL*/ }
 
     useEffect(() => {
@@ -60,11 +71,31 @@ export default function TableForm({
     }, [qty,box,pair,setQty])
 
     useEffect(() => {
+        const calculateTva = (tva) => {
+          setTva((total2 * 20)/100)
+        }
+        calculateTva(tva)
+    }, [total2,tva])
+
+    useEffect(() => {
         const calculateTotal = (total) => {
           setTotal(qty * pu)
         }
         calculateTotal(total)
     }, [total,qty,pu,setTotal])
+    {/*QTY AND TOTAL*/ }
+    useEffect (() =>{
+        let rows = document.querySelectorAll(".total")
+        let sum = 0
+    
+        for(let i = 0; i < rows.length; i++){
+            if (rows[i].className === "total"){
+                sum += isNaN(rows[i].innerHTML) ? 0 : parseInt(rows[i].innerHTML)
+                setTotal2(sum)
+            }
+        }
+    })
+
     {/*Edit Function*/ }
     const editRow = (id) =>{
         const editingRow = list.find((row)=>row.id === id)
@@ -139,7 +170,9 @@ export default function TableForm({
     </div>
     <button className="m-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 
       border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all
-      duration-300" type="submit">Add</button>
+      duration-300" type="submit">
+          {isEditing ? "Editing Row Item":"Add Item"}
+      </button>
     </form>
     {/*Table Items*/ }
     <table width="100%" className="">
@@ -164,7 +197,7 @@ export default function TableForm({
           <td>{pair}</td>
           <td>{qty}</td>
           <td>{pu}</td>
-          <td>{total}</td>
+          <td className="total">{total}</td>
           <td><button className="text-red-500 font-bold text-xl" onClick={()=> deleteRow(id)}><AiOutlineDelete/></button></td>
           <td><button className="text-yellow-500 font-bold text-xl" onClick={()=> editRow(id)}><AiOutlineEdit/></button></td>
         </tr>
@@ -172,7 +205,10 @@ export default function TableForm({
             </React.Fragment>
         ))}
     </table>
-
+    <div className="flex items-end justify-between text-gray-800 text-xl font-bold">
+        <h2 >T.V.A:{tva}</h2>
+        <h2>Total:{total2}</h2>
+    </div>
     </>
   )
 }

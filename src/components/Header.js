@@ -7,6 +7,7 @@ export default function Header({handlePrint}) {
       <div>
         <h1 className="font-bold uppercase tracking-wide text-4xl mb-3">Invoice</h1>
       </div>
+      {/* 
       <div>
         <ul className="flex items-center justify-between flex-wrap">
           <li className='mx-2'>
@@ -21,6 +22,7 @@ export default function Header({handlePrint}) {
           </li>
         </ul>
       </div>
+      */}
     </header>
 </div>
   )

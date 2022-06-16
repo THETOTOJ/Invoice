@@ -1,8 +1,7 @@
 import React from 'react'
 
 export default function Table({
-  list
-}) {  
+  list, total2,tva}) {  
     return (
     <>      
      <table width="100%" className="">
@@ -20,7 +19,7 @@ export default function Table({
         {list.map(({id,refer,serie,box,pair,qty,pu,total}) =>(
             <React.Fragment key={id}>
       <tbody>
-        <tr>
+        <tr className='flex justify-between '>
           <td>{refer}</td>
           <td>{serie}</td>
           <td>{box}</td>
@@ -33,6 +32,10 @@ export default function Table({
             </React.Fragment>
         ))}
     </table>
+    <div className="flex items-end justify-between text-gray-800 text-xl font-bold">
+        <h2 >T.V.A:{tva}</h2>
+        <h2>Total:{total2}</h2>
+    </div>
     </>
   )
 }
