@@ -16,12 +16,14 @@ code {
     monospace;
 }
 input, textarea{
-  background-color: #f1f1f1;
+  background-color: #f3f3f3;
   padding: 0.5rem;
   border-radius: 0.2rem;
   margin-bottom: 0.8rem;
+  border-color: turquoise;
   color: #393939;
-  font-weight: 600;
+  font-weight: 600; 
+  
 }
 label{
   font-size: 1.05rem;
@@ -31,5 +33,6 @@ label{
 }
 .test{
   justify-content: space-between; /* Can be changed in the live sample */
-
+  
 }
+

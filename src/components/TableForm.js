@@ -72,18 +72,27 @@ export default function TableForm({
 
     useEffect(() => {
         const calculateTva = (tva) => {
-          setTva((total2 * 20)/100)
+          setTva((total2 * 0.2).toFixed(2))
         }
         calculateTva(tva)
     }, [total2,tva])
 
     useEffect(() => {
         const calculateTotal = (total) => {
-          setTotal(qty * pu)
+          setTotal((qty * pu).toFixed(2))
         }
         calculateTotal(total)
     }, [total,qty,pu,setTotal])
-    {/*QTY AND TOTAL*/ }
+        {/*P.U  */ } 
+      useEffect(() => {
+      const calculatePu = (pu) => {
+       setPu((pu * 1).toFixed(2))
+      }
+      calculatePu(pu)
+      }, [pu])
+
+  {/*SUM*/ }
+
     useEffect (() =>{
         let rows = document.querySelectorAll(".total")
         let sum = 0
@@ -91,7 +100,7 @@ export default function TableForm({
         for(let i = 0; i < rows.length; i++){
             if (rows[i].className === "total"){
                 sum += isNaN(rows[i].innerHTML) ? 0 : parseInt(rows[i].innerHTML)
-                setTotal2(sum)
+                setTotal2(sum.toFixed(2))
             }
         }
     })
@@ -156,9 +165,10 @@ export default function TableForm({
     <p>{qty}</p>
     </div>
     <div className='flex flex-col'>
-    <label htmlFor='P.U'>P.U</label>
-    <input type = "number" name="P.U" id="P.U" 
-    placeholder='P.U' value={pu} 
+    <label htmlFor='P.U'>P.U </label>
+    <input 
+    type = "number" name="P.U" id="P.U" 
+    placeholder='' value={pu} 
     onChange={(e) => setPu(e.target.value)}
     />
     </div>

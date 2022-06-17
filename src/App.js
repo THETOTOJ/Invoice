@@ -33,14 +33,15 @@ function App() {
   return (
     <>
     <main className="m-5 p-5 xl:max-w-4xl xl:mx-auto bg-white rounded shadow">
+
+      {showInvoice ?   (
+         <>
       <ReactToPrint 
       trigger={() =><button className="bg-gray-500 text-white font-bold py-2 px-8 rounded shadow border-2 
       border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all
       duration-300 mb-10 ml-5">Print/Download</button>}
       content={() => componentRef.current}
       />
-      {showInvoice ?   (
-         <>
              <div ref={componentRef} className="p-5">
     <Header handlePrint={handlePrint}/>
     <Info client={client} date={date} invoiceNbr={invoiceNbr} bookNbr={bookNbr} />
@@ -68,9 +69,10 @@ function App() {
      
       <>
       {/* Client, invoice number, date, numero carnet, notes*/}
-    <div className="flex flex-col justify-center items-center ">
+    <div className="flex flex-col ">
       <label htmlFor="client">Nom du client</label>
       <input 
+        required
         type = "text" 
         name = "client" 
         id = "client" 
@@ -82,6 +84,8 @@ function App() {
 
       <label htmlFor="date">Date</label>
       <input 
+        required
+        min="0"
         type = "date" 
         name = "date" 
         id = "date" 
@@ -92,6 +96,9 @@ function App() {
 
       <label htmlFor="bookNbr">Numéro de carnet</label>
       <input 
+        required
+        min="0"
+        step='0.01'
         type = "number"
         name = "bookNbr"
         id = "bookNbr"
@@ -103,6 +110,9 @@ function App() {
 
       <label htmlFor="invoiceNbr">Numéro de facture</label>
       <input 
+        required
+        min="0"
+        step='0.01'
         type = "number"
         name = "bookNbr"
         id = "bookNbr"
