@@ -122,7 +122,7 @@ function App() {
         onChange={(b) =>setInvoiceNbr(b.target.value)}
         />
 
-
+          <h1 className="text-4xl font-bold m-5 text-center" ><u>ITEMS</u></h1>
                 <article>
                 <TableForm
                   refer={refer}
