@@ -94,12 +94,12 @@ function App() {
         value={date}
         onChange={(b) =>setDate(b.target.value)}/>
 
-      <label htmlFor="bookNbr">Numéro de carnet</label>
+      <label htmlFor="bookNbr">Numéro De Cahier</label>
       <input 
         required
         min="0"
         step='0.01'
-        type = "number"
+        type = "text"
         name = "bookNbr"
         id = "bookNbr"
         placeholder = "Enter"
@@ -108,7 +108,7 @@ function App() {
         onChange={(b) =>setBookNbr(b.target.value)}
         />
 
-      <label htmlFor="invoiceNbr">Numéro de facture</label>
+      <label htmlFor="invoiceNbr">Numéro De Facture</label>
       <input 
         required
         min="0"

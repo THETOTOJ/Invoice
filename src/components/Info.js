@@ -9,8 +9,8 @@ export default function Info({client,date,bookNbr,invoiceNbr}) {
       
     </section>
     <section className="mt-5 mr-4">
-    <h2 className="text-2xl font-bold">Numéro Carnet:&nbsp;{bookNbr}</h2>
-    <h2 className="text-2xl font-bold">Numéro Facture:&nbsp;{invoiceNbr}</h2>
+    <h2 className="text-2xl font-bold">Numéro De Cahier:&nbsp;{bookNbr}</h2>
+    <h2 className="text-2xl font-bold">Numéro De Facture:&nbsp;{invoiceNbr}</h2>
     </section>
     </div>  )
 }
