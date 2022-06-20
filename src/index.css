@@ -15,15 +15,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-input, textarea{
-  background-color: #f3f3f3;
+input, textarea {
+  background-color : #d1d1d1; 
   padding: 0.5rem;
   border-radius: 0.2rem;
   margin-bottom: 0.8rem;
-  border-color: turquoise;
   color: #393939;
   font-weight: 600; 
   
+}
+.c{
+  background-color : #d1d1d1; 
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 0.8rem;
+  color: #393939;
+  font-weight: 600; 
 }
 label{
   font-size: 1.05rem;

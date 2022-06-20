@@ -162,7 +162,7 @@ export default function TableForm({
     </div>
     <div className='flex flex-col'>
     <label htmlFor='qty'>Qté</label>
-    <p>{qty}</p>
+    <p className="c">{qty}</p>
     </div>
     <div className='flex flex-col'>
     <label htmlFor='P.U'>P.U </label>
@@ -174,14 +174,14 @@ export default function TableForm({
     </div>
     <div className='flex flex-col'>
     <label htmlFor='P.U'>Total</label>
-    <p>{total}</p>
+    <p className="c">{total}</p>
 
     </div>
     </div>
-    <button className="m-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 
+    <button className=" bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 
       border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all
       duration-300" type="submit">
-          {isEditing ? "Editing Row Item":"Add Item"}
+          {isEditing ? "Modification Article":"Ajouter Article"}
       </button>
     </form>
     {/*Table Items*/ }

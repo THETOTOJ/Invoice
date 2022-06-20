@@ -39,10 +39,10 @@ function App() {
       <ReactToPrint 
       trigger={() =><button className="bg-gray-500 text-white font-bold py-2 px-8 rounded shadow border-2 
       border-gray-500 hover:bg-transparent hover:text-gray-500 transition-all
-      duration-300 mb-10 ml-5">Print/Download</button>}
+      duration-300 mb-10 ml-5">Imprimer/Télécharger</button>}
       content={() => componentRef.current}
       />
-             <div ref={componentRef} className="p-5">
+    <div ref={componentRef} className="p-5">
     <Header handlePrint={handlePrint}/>
     <Info client={client} date={date} invoiceNbr={invoiceNbr} bookNbr={bookNbr} />
     <Table 
@@ -64,7 +64,7 @@ function App() {
     </div>
     <button className="m-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 
       border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all
-      duration-300" onClick={() => setShowInvoice(false)}>Edit Information</button></> 
+      duration-300" onClick={() => setShowInvoice(false)}>Modifier Facture</button></> 
       ) : (
      
       <>
@@ -122,7 +122,7 @@ function App() {
         onChange={(b) =>setInvoiceNbr(b.target.value)}
         />
 
-          <h1 className="text-4xl font-bold m-5 text-center" ><u>ITEMS</u></h1>
+          <h1 className="text-4xl font-bold m-5 text-center" ><u>Articles</u></h1>
                 <article>
                 <TableForm
                   refer={refer}
@@ -150,7 +150,7 @@ function App() {
 
       <button onClick={() => setShowInvoice(true)} className="bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 
       border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all
-      duration-300">Preview Invoice</button>
+      duration-300">Générer Facture</button>
       </div>
       </>
       )}
